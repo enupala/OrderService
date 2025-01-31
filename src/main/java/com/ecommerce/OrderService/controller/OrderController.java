@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("orders")
+@RequestMapping("/orders")
 public class OrderController {
 
     @Autowired
@@ -15,7 +15,8 @@ public class OrderController {
 
     @GetMapping("/orderStatus")
     public String getOrderStatus(){
-        String response=restTemplate.getForObject("http://ProductService/products",String.class);
-        return "Order Placed"+response;
+        System.out.println("gng inside order service");
+      String response=restTemplate.getForObject("http://ProductService/products",String.class);
+        return "Order Placed "+response;
             }
 }
